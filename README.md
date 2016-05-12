@@ -30,7 +30,7 @@ This section describes the technical detail that is expected from the deliverabl
 **IMPORTANT**! *If you have any questions or feel something is not clear enough, feel free to e-mail us at jobs@entropay.com and we will do our best to reply in the shortest time possible*.
 
 ### Batch Processor
-Using JSR-307 - Batch Processing (implemented by both Java EE 7 and Spring), you must implement a batch process which will be able to read, parse and save rates off the provided file, *rates-2016-01-01.DAT*, which can be found in the project’s *src/main/resources*.
+Using JSR-307 - Batch Processing (implemented by both Java EE 7 and Spring), you must implement a batch process which will be able to read, parse and save rates off the provided files, which can be found in the project’s *src/main/resources*.
 
 ### File Anatomy
 The file to parse is a simple text file which contains all of the rates of the day, where each line represents a rate.
