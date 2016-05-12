@@ -38,16 +38,16 @@ The file to parse is a simple text file which contains all of the rates of the d
 *2016010100087398USDEUR*
 
 The above line is an example of one of the rates, which can be parsed as follows:
-- **20160101** - a 8-character long value consistin=-[g of the date in yyyyMMdd format.
-- **00087398** - a 6-character long value consisting of the rate. The rate must be divided by 10*5 such that the real rate value is 0.87398.
+- **20160101** - a 8-character long value consisting of the date in yyyyMMdd format.
+- **00087398** - a 6-character long value consisting of the rate. The rate must be divided by 100,000. In this example the real rate value is 0.87398.
 - **USD** - the 3-character long *buy* currency in ISO-4217 format.
 - **EUR** - the 3-character long *sell* currency in ISO-4217 format.
 
 ### Persistence Layer
 You are expected to create an Persistence Entity Bean, *Rate.java*, which stores a single foreign exchange rate between two currencies. It should store:
 
-- *file* – which stores the filename from which this rate has been extracted,
-- *buyCurrency* – expressing the currency from which the rate will convert
+- *file* - which stores the filename from which this rate has been extracted,
+- *buyCurrency* - expressing the currency from which the rate will convert
 - *sellCurrency* - expressing the currency to which the rate will convert
 - *validDate* - containing the date when this rate could be used
 
