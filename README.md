@@ -47,15 +47,22 @@ The above line is an example of one of the rates, which can be parsed as follows
 You are expected to create an Persistence Entity Bean, *Rate.java*, which stores a single foreign exchange rate between two currencies. It should store:
 
 - *file* - which stores the filename from which this rate has been extracted,
-- *buyCurrency* - expressing the currency from which the rate will convert
-- *sellCurrency* - expressing the currency to which the rate will convert
-- *validDate* - containing the date when this rate could be used
+- *buyCurrency* - expressing the currency from which the rate will convert,
+- *sellCurrency* - expressing the currency to which the rate will convert,
+- *validDate* - containing the date when this rate could be used, and
+- *rate* - the foreign exchange rate itself.
 
 Create the necessary logic which will be able to save, fetch, update and delete *Rate.java* entries off the database. *Hint: This might be a Stateless Session Bean or a Spring Bean*.
 
+Although you will not be assessed for the following, here are some tips:
+- For the purpose of this task, you are free to handle and successful/failed files in whichever fashion to see fit. For example, it might be a good idea to relocate successful files and failed files into their own separate folders.
+- You are free to leave any system errors/exceptions unhandled and propagated to the front-end REST API layer (below).
+
 ### REST API Layer
-The REST API layer design and implementation is entirely up to you, however it should entirely provide the following functionality:
+The REST API layer design and implementation is entirely up to you, however it should provide the following functionality:
 - the ability to despatch the aforementioned job which will fetch, parse, and save rates from the file
 - the ability to fetch a list of rates, with the option to filter by date.
 
 Naturally, these APIs must be hooked to the implementations mentioned above.
+
+Any error handling—be it from the back-end or the front-end—should result in an HTTP500 response.
