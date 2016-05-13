@@ -55,7 +55,7 @@ You are expected to create an Persistence Entity Bean, *Rate.java*, which stores
 Create the necessary logic which will be able to save, fetch, update and delete *Rate.java* entries off the database. *Hint: This might be a Stateless Session Bean or a Spring Bean*.
 
 Although you will not be assessed for the following, here are some tips:
-- For the purpose of this task, you are free to handle and successful/failed files in whichever fashion to see fit. For example, it might be a good idea to relocate successful files and failed files into their own separate folders.
+- For the purpose of this task, you are free to handle any successful/failed files in whichever fashion to see fit. For example, it might be a good idea to relocate successful files and failed files into their own separate folders.
 - You are free to leave any system errors/exceptions unhandled and propagated to the front-end REST API layer (below).
 
 ### REST API Layer
