@@ -47,24 +47,26 @@ public class BatchJobsConfig implements ResourceLoaderAware {
 
 	private ResourceLoader resourceLoader;
 
+	//this is my first time trieing to work with Spring Batch
+	//for this part i tried to follow the spring documentation but i get stuck a little bit, because of multiple files and tricky parsing 
 	@Bean
-	ItemReader reader(){
+	ItemReader<RawRate> reader(){
 		//CustomItemReader reader = new CustomItemReader();
 		MultiResourceItemReader filesReader = new MultiResourceItemReader();
-		Resource[] resources = new Resource[] { resourceLoader.getResource("file:/rates-*") };
+		Resource[] resources = new Resource[] { resourceLoader.getResource("classpath:com/main/resources/rates-2016-01-01.DAT") };
 		filesReader.setResources(resources);
 		FlatFileItemReader fileReader = new FlatFileItemReader(); 
 		DefaultLineMapper lineMapper = new DefaultLineMapper();
 
-		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
-		tokenizer.setDelimiter(null);
-		tokenizer.setNames(new String[]{"rawRate"});
+//		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
+//		tokenizer.setDelimiter(null);
+//		tokenizer.setNames(new String[]{"rawRate"});
 		
-		 FieldSetMapper fieldSetMapper = new CustomFieldMapper(filesReader.getCurrentResource().getFilename()); 
-		  lineMapper.setLineTokenizer(tokenizer); 
-		  lineMapper.setFieldSetMapper(fieldSetMapper); 
-		   
-		  fileReader.setLineMapper(lineMapper); 
+		// FieldSetMapper fieldSetMapper = new CustomFieldMapper(filesReader.getCurrentResource().getFilename()); 
+//		  lineMapper.setLineTokenizer(tokenizer); 
+//		  lineMapper.setFieldSetMapper(fieldSetMapper); 
+//		   
+  	  fileReader.setLineMapper(lineMapper); 
 		   
 		  filesReader.setDelegate(fileReader); 
 		  
@@ -77,7 +79,7 @@ public class BatchJobsConfig implements ResourceLoaderAware {
 	}
 
 	@Bean
-	ItemWriter writer() {
+	ItemWriter<Rate> writer() {
 		return new CustomItemWriter();
 	}
 

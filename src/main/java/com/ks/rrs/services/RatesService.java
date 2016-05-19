@@ -1,5 +1,6 @@
 package com.ks.rrs.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -24,7 +25,8 @@ public class RatesService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/all")
 	public List<Rate> getAll() {
-	
+		//List<Rate> rates = new ArrayList<Rate>();
+		//rates.add(new Rate("file","usd","eur","20160101",3500.0));
 		return rateRepository.getAll();
 
 	}
